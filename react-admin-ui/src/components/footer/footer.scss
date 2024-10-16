@@ -1,0 +1,19 @@
+.footer {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgb(212, 212, 212);
+  width: 100%;
+  margin: 0 auto;
+  min-height: 80px;
+
+  span {
+    &:first-child {
+      font-weight: bold;
+    }
+    &:last-child {
+      font-size: 14px;
+    }
+  }
+}

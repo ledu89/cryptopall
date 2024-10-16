@@ -1,0 +1,70 @@
+@import "./variables.scss";
+@import "./responsive.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $main-bg;
+  color: $main-color;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.menuContainer {
+  width: 250px;
+  height: 100%;
+  padding: 5px 20px;
+  border-right: 2px solid $soft-bg;
+  @include lg {
+    width: max-content;
+  }
+}
+
+.contentContainer {
+  flex: 1;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.positiveCell {
+  color: rgb(20, 214, 188);
+}
+
+.negativeCell {
+  color: rgb(241, 16, 16);
+}
+
+.footer {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgb(212, 212, 212);
+  width: 100%;
+  margin: 0 auto;
+  min-height: 80px;
+
+  span {
+    &:first-child {
+      font-weight: bold;
+    }
+    &:last-child {
+      font-size: 14px;
+    }
+  }
+}

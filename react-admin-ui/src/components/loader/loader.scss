@@ -1,0 +1,12 @@
+.loader {
+  position: fixed; /* Use fixed instead of absolute to make it relative to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999; /* Higher z-index to ensure it's on top of other content */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}

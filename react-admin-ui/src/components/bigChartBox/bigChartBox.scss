@@ -1,0 +1,29 @@
+@import "../../styles/responsive.scss";
+.totalAssetsWorth {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1 {
+    @include xxl {
+      font-size: 24px;
+    }
+  }
+  .balance {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    flex-direction: column;
+  }
+  h6 {
+    font-size: 16px;
+  }
+  .balanceDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+}
