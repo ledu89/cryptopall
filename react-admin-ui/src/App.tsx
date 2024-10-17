@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
-import router from "./router/router";
+
 import "./styles/global.scss";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/login/Login";
@@ -7,9 +7,6 @@ import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Coins from "./pages/coins/Coins";
-
-import Products from "./pages/products/Products";
-import Product from "./pages/product/Product";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoutes from "./components/privateRoutes/PrivateRoutes";
 import Coin from "./pages/coin/Coin";
@@ -33,8 +30,6 @@ function App() {
                   <Route index element={<Home />} />
                   <Route path="coins" element={<Coins />} />
                   <Route path="coins/:id" element={<Coin />} />
-                  <Route path="products" element={<Products />} />
-                  <Route path="products/:id" element={<Product />} />
                   <Route path="portfolio" element={<Portfolio />} />
                   <Route path="profile" element={<Profile />} />
                   <Route path="about" element={<AboutUs />} />

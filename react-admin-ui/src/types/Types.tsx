@@ -9,6 +9,8 @@ export type CryptoCoin = {
   amount: number;
   users_permissions_users: number[];
   image?: string;
+  totalAmount?: number;
+  color: string;
 };
 export type User = {
   blocked: boolean;

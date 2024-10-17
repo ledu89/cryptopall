@@ -1,24 +1,27 @@
-import "./bigChartBox.scss";
+import "./balance.scss";
 import { formatPrice } from "../../helpers/formatPrice";
-import { CryptoCoin } from "../../api/axiosInstance";
+
 import useGetUserDeposit from "../../hooks/useGetUserDeposit";
 import Loader from "../loader/Loader";
+import { Asset } from "../../pages/home/Home";
 
-const BigChartBox = ({ userAssets }) => {
+type BalanceProps = {
+  userAssets: Asset[];
+};
+const Balance = ({ userAssets }: BalanceProps) => {
   const { data: userDeposit = 0, isLoading } = useGetUserDeposit();
 
-  const totalAssets = userAssets.data.map(
-    (asset: CryptoCoin) =>
-      asset.attributes.amount * asset.attributes.current_price
+  const totalAssets = userAssets.map(
+    (asset: Asset) => asset.attributes.amount * asset.attributes.current_price
   );
 
-  const totalBalance = totalAssets.reduce((acc, curr) => acc + curr, 0);
+  const totalBalance = totalAssets.reduce((acc: number, curr) => acc + curr, 0);
 
   if (isLoading) return <Loader />;
 
   return (
     <div className="totalAssetsWorth">
-      <h2>Total assets worth</h2>
+      <h2>Total coin's worth</h2>
       <div className="balance">
         <h2>{formatPrice(totalBalance)}</h2>
       </div>
@@ -29,4 +32,4 @@ const BigChartBox = ({ userAssets }) => {
   );
 };
 
-export default BigChartBox;
+export default Balance;

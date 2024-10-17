@@ -6,11 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import useBuyCoin from "../../hooks/useBuyCoin";
 import { useState } from "react";
 import Add from "../add/Add";
-import {
-  TopBoxProps,
-  TrendingCoin,
-  TrendingCoinsType,
-} from "../../types/Types";
+import { TrendingCoin, TrendingCoinsType } from "../../types/Types";
 import useGetUserDeposit from "../../hooks/useGetUserDeposit";
 import Loader from "../loader/Loader";
 import { toast } from "react-toastify";
@@ -71,7 +67,6 @@ const TrendingCoins = ({ trendingCoins }: TrendingCoinsType) => {
         {trendingCoins
           .map((coin) => {
             const { item } = coin;
-            console.log(item);
 
             return (
               <>

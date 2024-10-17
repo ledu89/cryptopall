@@ -2,15 +2,18 @@ import { Line, LineChart, ResponsiveContainer, XAxis, Tooltip } from "recharts";
 import { Box, Skeleton } from "@mui/material";
 import { useFetchCoinMarketChart } from "../../hooks/useFetchCoinMarkerChart";
 import { ChangeEvent, useState } from "react";
+
 type ChartData = {
   timestamp: string;
   price: number;
 };
+
 type ChartProps = {
   id: string | undefined;
   selectedCurrency: string;
   handleCurrencyChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
+
 const Chart = ({ id, selectedCurrency, handleCurrencyChange }: ChartProps) => {
   const [chartDays, setChartDays] = useState<string>("30");
 
@@ -34,39 +37,21 @@ const Chart = ({ id, selectedCurrency, handleCurrencyChange }: ChartProps) => {
         <Box
           sx={{
             width: 800,
-            gap: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
+            height: 300,
+            borderRadius: 2,
+            overflow: "hidden",
+            boxShadow: 1,
           }}
         >
           <Skeleton
-            variant="rounded"
+            variant="rectangular"
             animation="wave"
-            width="100%"
-            height={50}
-          />
-          <Skeleton
-            variant="rounded"
-            animation="wave"
-            width="100%"
-            height={50}
-          />
-          <Skeleton
-            variant="rounded"
-            animation="wave"
-            width="100%"
-            height={50}
-          />
-          <Skeleton
-            variant="rounded"
-            animation="wave"
-            width="100%"
-            height={50}
+            sx={{ height: "100%", borderRadius: 2 }}
           />
         </Box>
       </div>
     );
+
   const transformMarketChartData = (data: any) => {
     if (!data || !data.prices) {
       return [];
@@ -81,8 +66,10 @@ const Chart = ({ id, selectedCurrency, handleCurrencyChange }: ChartProps) => {
       };
     });
   };
+
   const transformedData: ChartData[] =
     transformMarketChartData(marketChartData);
+
   return (
     <div className="chart">
       <div className="chartFilters">
@@ -129,13 +116,11 @@ const Chart = ({ id, selectedCurrency, handleCurrencyChange }: ChartProps) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="timestamp" />
-
           <Tooltip
             formatter={(value: number) =>
               `${value.toFixed(4)} ${selectedCurrency}`
             }
           />
-
           <Line type="monotone" dataKey="price" stroke="#8884d8" dot={false} />
           <Line
             type="monotone"

@@ -10,7 +10,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
   @include lg {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   @include md {
     grid-template-columns: repeat(1, 1fr);
@@ -24,15 +24,15 @@
     border-radius: 10px;
     border: 2px solid $soft-bg;
   }
-  .box1 {
+  .trendingCoinBox {
     grid-column: span 1;
     grid-row: span 4;
   }
-  .box4 {
+  .pieChartBox {
     grid-column: span 1;
     grid-row: span 4;
   }
-  .box7 {
+  .balanceBox {
     grid-column: span 2;
     grid-row: span 2;
     @include lg {
@@ -45,5 +45,22 @@
       order: -1;
       grid-row: span 1;
     }
+  }
+  .empty-state {
+    padding: 20px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 400px; // Set a max width for better centering
+  }
+
+  .empty-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px; // Set height for consistent spacing
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5; // Light gray background
+    border-radius: 8px;
   }
 }

@@ -7,32 +7,6 @@ type Props = {
 };
 
 const DataTable = (props: Props) => {
-  // const actionColumn: GridColDef = {
-  //   field: "action",
-  //   headerName: "Action",
-  //   width: 200,
-  //   renderCell: (params) => {
-  //     return (
-  //       <div className="action">
-  //         <Link to={`${params.row.id}`}>
-  //           <Tooltip title="View coin">
-  //             <IconButton>
-  //               <RemoveRedEye />
-  //             </IconButton>
-  //           </Tooltip>
-  //         </Link>
-  //         <div className="delete" onClick={() => handleDelete(params.row.id)}>
-  //           <Tooltip title="Buy coin">
-  //             <IconButton>
-  //               <AccountBalanceWallet />
-  //             </IconButton>
-  //           </Tooltip>
-  //         </div>
-  //       </div>
-  //     );
-  //   },
-  // };
-
   return (
     <div className="dataTable">
       <DataGrid
