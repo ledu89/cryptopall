@@ -10,6 +10,7 @@ import Loader from "../../components/loader/Loader";
 
 import Chart from "../../components/chart/Chart";
 import { formatPrice } from "../../helpers/formatPrice";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Coin = () => {
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
@@ -19,14 +20,14 @@ const Coin = () => {
   const {
     data: singleCoinData,
     isLoading: isSingleCoinLoading,
-    error: singleCoinError,
+    isError: singleCoinError,
   } = useFetchSingleCoin({ endpoint, id });
 
   const handleCurrencyChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCurrency(e.target.value);
   };
   if (isSingleCoinLoading) return <Loader />;
-  if (singleCoinError) return "...error";
+  if (singleCoinError) return <ErrorPage error={singleCoinData} />;
 
   return (
     <div className="single">

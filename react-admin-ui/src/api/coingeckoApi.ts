@@ -19,6 +19,7 @@ export const getCoins = async (endpoint: string) => {
   } catch (error: any) {
     if (error.response) {
       toast.error(`API Error: ${error.message}`);
+      throw new Error();
     }
   }
 };

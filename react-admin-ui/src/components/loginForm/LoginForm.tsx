@@ -75,7 +75,7 @@ const LoginForm = () => {
             {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
-        <span>or</span>
+        <span>Still not a member?</span>
         <Link to="/register">Create an account</Link>
         {(errors.username || errors.password) && (
           <small className="error">

@@ -101,7 +101,7 @@ const RegisterForm = () => {
           </div>
           <button disabled={isLoading}>Register</button>
         </form>
-        <span>or</span>
+        <span>Already have account?</span>
         <Link to="/login">Log In</Link>
         {(errors.fullName ||
           errors.username ||
