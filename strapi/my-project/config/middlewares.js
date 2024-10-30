@@ -26,7 +26,7 @@ module.exports = [
     config: {
       origin: [
         "https://strapi-cryptopall.onrender.com", // Backend URL
-        "https://cryptopall.vercel.app", // Frontend URL
+        "https://cryptopall-git-main-ledus-projects.vercel.app", // Frontend URL
       ],
       methods: ["GET", "POST", "PUT", "DELETE"],
       headers: ["Content-Type", "Authorization"],
