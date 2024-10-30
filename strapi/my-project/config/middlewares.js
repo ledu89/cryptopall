@@ -17,7 +17,10 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: "*", // Allow all origins (for development/testing only)
+      origin: ["https://cryptopall-axqa33eyq-ledus-projects.vercel.app"],
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      headers: ["Content-Type", "Authorization"],
+      keepHeadersOnError: true,
     },
   },
   "strapi::poweredBy",
