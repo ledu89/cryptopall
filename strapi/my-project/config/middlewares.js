@@ -19,10 +19,11 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https:"],
-          "img-src": ["'self'", "data:", "blob:", "https:"],
-          "media-src": ["'self'", "data:", "blob:", "https:"],
-          upgradeInsecureRequests: null,
+          "connect-src": [
+            "'self'",
+            "https://strapi-cryptopall.onrender.com",
+            "https://cryptopall.vercel.app",
+          ],
         },
       },
     },
@@ -30,13 +31,12 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
+      enabled: true,
       origin: [
         "https://cryptopall.vercel.app",
-        "https://cryptopall-brhbcr7d1-ledus-projects.vercel.app",
+        "https://strapi-cryptopall.onrender.com",
       ],
-      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-      headers: ["Content-Type", "Authorization"],
-      keepHeadersOnError: true,
+      headers: "*",
     },
   },
   "strapi::poweredBy",
