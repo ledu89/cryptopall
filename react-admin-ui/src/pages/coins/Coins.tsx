@@ -36,7 +36,7 @@ const Coins = () => {
       type: "string",
       headerName: "Name",
       width: 150,
-      editable: true,
+      editable: false,
     },
 
     {
@@ -44,7 +44,7 @@ const Coins = () => {
       headerName: "Price",
       type: "string",
       width: 150,
-      editable: true,
+      editable: false,
       valueFormatter: (params) => formatPrice(params),
     },
     {
