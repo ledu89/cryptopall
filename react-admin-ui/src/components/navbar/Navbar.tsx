@@ -216,19 +216,19 @@ const Navbar = () => {
               },
             }}
           >
-            <ListItem>
+            <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
               <Link to="/">Home</Link>
             </ListItem>
-            <ListItem>
+            <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
               <Link to="/portfolio">Portfolio</Link>
             </ListItem>
-            <ListItem>
+            <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
               <Link to="/coins">Market</Link>
             </ListItem>
-            <ListItem>
+            <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
               <Link to="/profile">Profile</Link>
             </ListItem>
-            <ListItem>
+            <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
               <Link to="/about">About</Link>
             </ListItem>
           </List>
