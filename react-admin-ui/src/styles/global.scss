@@ -41,7 +41,8 @@ a {
 .contentContainer {
   flex: 1;
   padding: 5px 20px;
-  width: 100vw;
+  // width: 100vw;
+  overflow: hidden;
 }
 
 .positiveCell {
