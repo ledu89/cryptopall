@@ -33,12 +33,15 @@ a {
   @include lg {
     width: max-content;
   }
+  @include md {
+    display: none;
+  }
 }
 
 .contentContainer {
   flex: 1;
   padding: 5px 20px;
-  width: 100%;
+  width: 100vw;
 }
 
 .positiveCell {

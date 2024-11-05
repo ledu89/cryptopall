@@ -12,9 +12,9 @@
       color: $soft-color;
     }
   }
-  h1 {
-    @include xxl {
-      font-size: 24px;
+  h2 {
+    @include md {
+      font-size: 16px;
     }
   }
   .list {

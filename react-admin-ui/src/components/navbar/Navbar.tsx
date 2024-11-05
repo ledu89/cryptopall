@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import useAddDeposit from "../../hooks/useAddDeposit";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Button, TextField } from "@mui/material";
+import { Button, Divider, TextField } from "@mui/material";
 import {
   AppBar,
   Toolbar,
@@ -18,6 +18,7 @@ import {
 import { Logout as LogoutIcon, Menu as MenuIcon } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Menu from "../menu/Menu";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -41,7 +42,6 @@ const Navbar = () => {
       setDrawerOpen(false);
     }
   }, [isLargeScreen, isDrawerOpen]);
-  console.log(isLargeScreen);
 
   return (
     <AppBar
@@ -203,6 +203,33 @@ const Navbar = () => {
               >
                 {isPending ? "Depositing..." : "Deposit"}
               </Button>
+            </ListItem>
+          </List>
+          <Divider />
+          <List
+            sx={{
+              display: { xs: "block" },
+              alignItems: "center",
+
+              "@media (min-width: 768px)": {
+                display: "none",
+              },
+            }}
+          >
+            <ListItem>
+              <Link to="/">Home</Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/portfolio">Portfolio</Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/coins">Market</Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/profile">Profile</Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/about">About</Link>
             </ListItem>
           </List>
         </Box>

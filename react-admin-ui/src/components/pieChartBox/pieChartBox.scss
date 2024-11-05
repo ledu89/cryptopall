@@ -9,6 +9,9 @@
     @include xxl {
       font-size: 24px;
     }
+    @include md {
+      font-size: 16px;
+    }
   }
   .chart {
     display: flex;

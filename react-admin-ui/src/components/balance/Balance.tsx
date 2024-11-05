@@ -21,7 +21,7 @@ const Balance = ({ userAssets }: BalanceProps) => {
 
   return (
     <div className="totalAssetsWorth">
-      <h2>Total coin's worth</h2>
+      <h2 className="totalCoinText">Total coin's worth</h2>
       <div className="balance">
         <h2>{formatPrice(totalBalance)}</h2>
       </div>
