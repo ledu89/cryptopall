@@ -151,11 +151,11 @@ const Navbar = () => {
           role="presentation"
         >
           <List>
-            <ListItem>
+            <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
               <Link to="/profile">
                 <ListItemText primary={user?.username} />
               </Link>
-              <IconButton color="inherit" onClick={logout}>
+              <IconButton title="logout" color="inherit" onClick={logout}>
                 <LogoutIcon />
               </IconButton>
             </ListItem>
@@ -171,7 +171,10 @@ const Navbar = () => {
                   style: { color: "#fff" },
                 }}
                 InputProps={{
-                  style: { color: "#fff", borderColor: "#8884d8" },
+                  style: {
+                    color: "#fff",
+                    borderColor: "#8884d8",
+                  },
                 }}
                 sx={{
                   "& .MuiOutlinedInput-root": {
