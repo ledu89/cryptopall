@@ -12,7 +12,7 @@ const data = [
 const PieChartBox = ({ sortedAssets }) => {
   return (
     <div className="pieChartBox">
-      <h1>Pie chart of top crypto</h1>
+      <h1>Pie chart of coins</h1>
       <div className="chart">
         {!sortedAssets.length ? (
           "Buy some coin"

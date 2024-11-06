@@ -111,7 +111,7 @@ const Portfolio = () => {
 
     const newAmount = selectedCoin.amount - amount;
     const newDeposit = userDeposit + amount * selectedCoin.current_price;
-    console.log("newDeposit", newDeposit);
+
 
     try {
       await sellCoin({ coinId: selectedCoin.id, newAmount });

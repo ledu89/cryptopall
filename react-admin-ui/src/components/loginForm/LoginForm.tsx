@@ -49,10 +49,6 @@ const LoginForm = () => {
               placeholder="Username or email"
               {...register("username", {
                 required: "Username is required",
-                minLength: {
-                  value: 4,
-                  message: "Username must be at least 4 characters long",
-                },
               })}
             />
           </div>
@@ -64,15 +60,13 @@ const LoginForm = () => {
               placeholder="Password"
               {...register("password", {
                 required: "Password is required",
-                minLength: {
-                  value: 5,
-                  message: "Password must be at least 5 characters long",
-                },
               })}
             />
           </div>
           <button disabled={isLoading}>
-            {isLoading ? "Logging in..." : "Login"}
+            {isLoading
+              ? "Logging in... This may take up to a minute. Thanks for your patience!"
+              : "Login"}
           </button>
         </form>
         <span>Still not a member</span>

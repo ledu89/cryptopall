@@ -73,12 +73,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setUser(null);
     localStorage.removeItem("user");
     localStorage.removeItem("jwt");
-    toast.success("Logging out...");
+    toast.success("You have successfully logged out. See you next time!");
   };
   const updateUser = async (data: Partial<User>) => {
     try {
       const response = await axiosInstance.put(`/users/${user.id}`, data);
-      console.log("RESPONSEE", response);
 
       const updatedUser = response.data;
 
@@ -86,8 +85,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(updatedUser);
       toast.success("Profile updated successfully");
     } catch (error: any) {
-      console.log(error);
-
       toast.error(`${error.response.data.error.message} `);
     }
   };

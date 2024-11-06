@@ -16,7 +16,7 @@ const RegisterForm = () => {
   const onSubmit = async (data) => {
     await registerUser(data);
   };
-  if (isLoading) return "...Loading";
+
   return (
     <div className="registerForm">
       <div className="rightImg">
@@ -99,7 +99,11 @@ const RegisterForm = () => {
               })}
             />
           </div>
-          <button disabled={isLoading}>Register</button>
+          <button disabled={isLoading}>
+            {isLoading
+              ? "Please wait. Registration can take up to 1 min"
+              : "Register"}
+          </button>
         </form>
         <span>Already have account?</span>
         <Link to="/login">Log In</Link>

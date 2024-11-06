@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./coinBox.scss";
-import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
+
 import { formatPrice } from "../../helpers/formatPrice";
 import { CryptoCoin } from "../../types/Types";
 
@@ -8,8 +8,6 @@ type CoinBoxProps = {
   sortedAssets: CryptoCoin;
 };
 const CoinBox = ({ sortedAssets }: CoinBoxProps) => {
-  console.log(sortedAssets);
-
   return (
     <div className="chartBox">
       <div className="boxInfo">

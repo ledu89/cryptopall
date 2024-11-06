@@ -175,7 +175,7 @@ const Coins = () => {
       }
     }
   };
-  console.log(selectedCoin);
+
 
   return (
     <div className="coins">

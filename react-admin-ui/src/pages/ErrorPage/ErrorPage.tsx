@@ -6,8 +6,6 @@ type ErrorProps = {
   error?: object | null;
 };
 const ErrorPage: React.FC<ErrorProps> = ({ error }) => {
-  console.log(error);
-
   const errorMessage = error?.message || "An unexpected error occurred.";
   return (
     <div className="errorPage">
