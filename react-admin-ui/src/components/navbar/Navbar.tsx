@@ -35,9 +35,11 @@ const Navbar = () => {
     handleDeposit({ userId: user?.id, deposit: depositAmount });
     setDepositAmount("");
     setDrawerOpen((prev) => !prev);
+    toast.success(
+      `Deposit successful! You've added $${depositAmount} to your account.`
+    );
   };
   useEffect(() => {
-    // Automatically close the drawer if the screen is large
     if (isLargeScreen && isDrawerOpen) {
       setDrawerOpen(false);
     }
@@ -220,19 +222,29 @@ const Navbar = () => {
             }}
           >
             <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
-              <Link to="/">Home</Link>
+              <Link style={{ display: "block", width: "100%" }} to="/">
+                Home
+              </Link>
             </ListItem>
             <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
-              <Link to="/portfolio">Portfolio</Link>
+              <Link style={{ display: "block", width: "100%" }} to="/portfolio">
+                Portfolio
+              </Link>
             </ListItem>
             <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
-              <Link to="/coins">Market</Link>
+              <Link style={{ display: "block", width: "100%" }} to="/coins">
+                Market
+              </Link>
             </ListItem>
             <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
-              <Link to="/profile">Profile</Link>
+              <Link style={{ display: "block", width: "100%" }} to="/profile">
+                Profile
+              </Link>
             </ListItem>
             <ListItem onClick={() => setDrawerOpen((prev) => !prev)}>
-              <Link to="/about">About</Link>
+              <Link style={{ display: "block", width: "100%" }} to="/about">
+                About
+              </Link>
             </ListItem>
           </List>
         </Box>

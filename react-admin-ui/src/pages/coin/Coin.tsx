@@ -35,7 +35,11 @@ const Coin = () => {
         <div className="info">
           <div className="topInfo">
             {singleCoinData?.image && (
-              <img src={singleCoinData.image.large} alt="" />
+              <img
+                className="coinImg"
+                src={singleCoinData.image.large}
+                alt=""
+              />
             )}
             <div className="title">
               <div>

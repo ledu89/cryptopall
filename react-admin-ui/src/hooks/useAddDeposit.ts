@@ -47,7 +47,6 @@ const useAddDeposit = () => {
 
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
-      toast.success("Deposit successful");
     },
 
     onError: (error: any) => {

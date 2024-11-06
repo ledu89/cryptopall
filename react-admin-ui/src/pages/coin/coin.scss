@@ -26,12 +26,12 @@
             font-size: 12px;
             flex-wrap: wrap;
           }
-          img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
+        }
+        .coinImg {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
         }
         h1 {
           font-weight: 500;
