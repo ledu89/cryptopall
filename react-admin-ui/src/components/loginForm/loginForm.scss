@@ -42,6 +42,17 @@
       flex-direction: column;
       gap: 30px;
       width: 300px;
+      .input {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        svg {
+          position: absolute;
+          right: -0;
+          color: $dark-bg;
+        }
+      }
       input {
         background-color: transparent;
         padding: 10px 0;

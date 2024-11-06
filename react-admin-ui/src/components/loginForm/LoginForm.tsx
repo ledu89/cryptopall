@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import "./loginForm.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAuth } from "../../context/AuthContext";
-
+import { useState } from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 type LoginData = {
   username: string;
   password: string;
@@ -19,6 +21,7 @@ type AuthContextType = {
 };
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -56,12 +59,23 @@ const LoginForm = () => {
             <label htmlFor="password"></label>
             <input
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password", {
                 required: "Password is required",
               })}
             />
+            {showPassword ? (
+              <RemoveRedEyeIcon
+                style={{ width: "20px" }}
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            ) : (
+              <VisibilityOffIcon
+                style={{ width: "20px" }}
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            )}
           </div>
           <button disabled={isLoading}>
             {isLoading
