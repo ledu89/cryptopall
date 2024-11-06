@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{ backgroundColor: "#2a3447", marginBottom: "20px" }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
