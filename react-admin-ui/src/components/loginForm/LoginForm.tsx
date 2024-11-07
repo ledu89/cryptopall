@@ -83,7 +83,7 @@ const LoginForm = () => {
               : "Login"}
           </button>
         </form>
-        <span>Still not a member</span>
+        <span>Still not a member?</span>
         <Link to="/register">Create an account</Link>
         {(errors.username || errors.password) && (
           <small className="error">
