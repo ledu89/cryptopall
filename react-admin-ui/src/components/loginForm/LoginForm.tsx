@@ -5,6 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import CircularProgress from "@mui/material/CircularProgress";
 type LoginData = {
   username: string;
   password: string;
@@ -90,6 +91,7 @@ const LoginForm = () => {
             {errors.username?.message || errors.password?.message}
           </small>
         )}
+        <div className="spinner">{isLoading && <CircularProgress />}</div>
       </div>
     </div>
   );

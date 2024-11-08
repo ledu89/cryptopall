@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 
 import { useAuth } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const RegisterForm = () => {
   const {
@@ -121,6 +122,7 @@ const RegisterForm = () => {
               errors.confirmPass?.message}
           </small>
         )}
+        <div className="spinner">{isLoading && <CircularProgress />}</div>
       </div>
     </div>
   );
