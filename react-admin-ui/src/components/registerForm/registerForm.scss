@@ -36,7 +36,7 @@
       border-radius: 20px;
     }
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 8px;
       text-align: center;
       color: $dark-color;
     }
@@ -48,7 +48,7 @@
       margin-bottom: 10px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 12px;
       width: 300px;
       input {
         background-color: transparent;
@@ -67,6 +67,7 @@
       button {
         width: 100%;
         padding: 12px;
+        margin-top: 10px;
         align-self: center;
         color: white;
         background-color: $dark-bg;
