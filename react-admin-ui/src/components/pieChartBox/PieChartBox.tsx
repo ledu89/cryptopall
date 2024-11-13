@@ -15,7 +15,7 @@ const PieChartBox = ({ sortedAssets }) => {
       <h1>Pie chart of coins</h1>
       <div className="chart">
         {!sortedAssets.length ? (
-          "Buy some coin"
+          "Buy some coin's to see pie chart"
         ) : (
           <ResponsiveContainer width="99%" height={300}>
             <PieChart>
