@@ -55,21 +55,21 @@ const Home = () => {
         {sortedAssets.length > 0 || sortedAssets.length === 1 ? (
           <CoinBox sortedAssets={sortedAssets[0]} />
         ) : (
-          <h3>Your coins will show here</h3>
+          <h3>Your #1 asset will show here</h3>
         )}
       </div>
       <div className="box">
         {sortedAssets.length > 1 || sortedAssets.length === 2 ? (
           <CoinBox sortedAssets={sortedAssets[1]} />
         ) : (
-          <h3>Your coins will show here</h3>
+          <h3>Your #2 asset will show here</h3>
         )}
       </div>
       <div className="box ">
         {sortedAssets.length > 2 || sortedAssets.length === 3 ? (
           <CoinBox sortedAssets={sortedAssets[2]} />
         ) : (
-          <h3>Your coins will show here</h3>
+          <h3>Your #3 asset will show here</h3>
         )}
       </div>
       <div className="box ">
@@ -77,7 +77,7 @@ const Home = () => {
         {sortedAssets.length > 3 || sortedAssets.length === 4 ? (
           <CoinBox sortedAssets={sortedAssets[3]} />
         ) : (
-          <h3>Your coins will show here</h3>
+          <h3>Your #4 asset will show here</h3>
         )}
       </div>
     </div>
