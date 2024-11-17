@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import { toast } from "react-toastify";
 
 type ThemeContextType = {
   isDarkMode: boolean;
@@ -22,6 +23,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setIsDarkMode((prev) => {
       const newMode = !prev;
       localStorage.setItem("isDarkMode", JSON.stringify(newMode));
+      toast.info(`Theme changed to ${newMode ? "Dark" : "Light"} mode`, {
+        autoClose: 1000, // 1 second
+        position: "top-right", // Adjust to "bottom-right" if preferred
+      });
       return newMode;
     });
   };

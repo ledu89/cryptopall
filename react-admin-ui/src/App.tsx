@@ -44,7 +44,7 @@ function App() {
         <ToastContainer
           position="top-center"
           reverseOrder={false}
-          autoClose={2000}
+          autoClose={1000}
         />
       </QueryClientProvider>
     </>
