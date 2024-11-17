@@ -16,7 +16,7 @@ const ErrorPage: React.FC<ErrorProps> = ({ error }) => {
         sx={{
           backgroundColor: "#8884d8",
           "&:hover": {
-            backgroundColor: "#8884d8",
+            backgroundColor: "#48448d",
           },
         }}
       >

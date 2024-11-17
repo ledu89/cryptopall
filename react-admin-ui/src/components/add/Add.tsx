@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material";
 import "./add.scss";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CloseOutlined } from "@mui/icons-material";
 
 type Props = {
@@ -20,6 +20,7 @@ const Add = ({
   maxAmountOfCoins,
 }: Props) => {
   const [amount, setAmount] = useState<number>();
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (amount) {
@@ -27,6 +28,11 @@ const Add = ({
     }
     setOpen(false);
   };
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
   return (
     <div className="add">
       <div className="modal">
@@ -42,6 +48,7 @@ const Add = ({
           <div className="item">
             <label>Amount</label>
             <input
+              ref={inputRef}
               type="number"
               step="0.1"
               min="0.1"

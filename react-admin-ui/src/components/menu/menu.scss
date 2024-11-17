@@ -11,9 +11,22 @@
       align-items: center;
       gap: 10px;
       padding: 10px;
+      .icon {
+        filter: grayscale(100%) sepia(100%) saturate(200%) hue-rotate(180deg);
+
+        .light-mode & {
+          filter: grayscale(100%) sepia(100%) saturate(200%) hue-rotate(180deg)
+            invert(1);
+        }
+      }
       &:hover {
         background-color: $soft-bg;
         border-radius: 5px;
+      }
+      .light-mode & {
+        &:hover {
+          background-color: $soft-color;
+        }
       }
 
       .listItemTitle {
@@ -27,6 +40,9 @@
       font-weight: 200;
       color: $soft-color;
       text-transform: uppercase;
+      .light-mode & {
+        color: $soft-bg;
+      }
       @include lg {
         display: none;
       }

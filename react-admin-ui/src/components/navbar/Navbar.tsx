@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import useAddDeposit from "../../hooks/useAddDeposit";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Button, Divider, TextField } from "@mui/material";
+import { Button, Divider, TextField, Tooltip } from "@mui/material";
 import {
   AppBar,
   Toolbar,
@@ -18,9 +18,14 @@ import {
 import { Logout as LogoutIcon, Menu as MenuIcon } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Menu from "../menu/Menu";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NightlightIcon from "@mui/icons-material/Nightlight";
 
-const Navbar = () => {
+type NavbarPropsType = {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+};
+const Navbar = ({ isDarkMode, toggleTheme }: NavbarPropsType) => {
   const { user, logout } = useAuth();
   const [depositAmount, setDepositAmount] = useState<number | "">("");
   const { mutate: handleDeposit, isPending } = useAddDeposit();
@@ -48,7 +53,7 @@ const Navbar = () => {
   return (
     <AppBar
       position="sticky"
-      sx={{ backgroundColor: "#2a3447", marginBottom: "20px" }}
+      className={`navbar ${isDarkMode ? "dark-theme" : "light-theme"}`}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box display="flex" alignItems="center">
@@ -57,7 +62,13 @@ const Navbar = () => {
             alt="logo"
             style={{ height: "40px", marginRight: "10px" }}
           />
-          <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+              color: isDarkMode ? "#fefefe" : "#161616",
+            }}
+          >
             CryptoPall
           </Typography>
         </Box>
@@ -66,6 +77,24 @@ const Navbar = () => {
           <Box
             sx={{ display: "flex", alignItems: "center", marginRight: "20px" }}
           >
+            <Tooltip
+              title={
+                isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
+              arrow
+            >
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="theme"
+                sx={{ display: { xs: "block" } }}
+                onClick={toggleTheme}
+              >
+                <Box sx={{ marginRight: "16px" }}>
+                  {isDarkMode ? <LightModeIcon /> : <NightlightIcon />}
+                </Box>
+              </IconButton>
+            </Tooltip>
             <TextField
               label="Enter deposit"
               type="number"
@@ -74,10 +103,13 @@ const Navbar = () => {
               value={depositAmount}
               onChange={(e) => setDepositAmount(Number(e.target.value))}
               InputLabelProps={{
-                style: { color: "#fff" },
+                style: { color: isDarkMode ? "#fefefe" : "#161616" },
               }}
               InputProps={{
-                style: { color: "#fff", borderColor: "#8884d8" },
+                style: {
+                  color: isDarkMode ? "#fefefe" : "#161616",
+                  borderColor: "#8884d8",
+                },
               }}
               sx={{
                 "& .MuiOutlinedInput-root": {
@@ -113,12 +145,15 @@ const Navbar = () => {
             component="span"
             sx={{ marginRight: "20px", color: "#fff" }}
           >
-            <a
-              href="/profile"
-              style={{ textDecoration: "none", color: "#fff" }}
+            <Link
+              to="/profile"
+              style={{
+                textDecoration: "none",
+                color: isDarkMode ? "#fefefe" : "#161616",
+              }}
             >
               {user?.username}
-            </a>
+            </Link>
           </Typography>
           <IconButton color="inherit" onClick={logout}>
             <LogoutIcon />
@@ -126,6 +161,21 @@ const Navbar = () => {
         </Box>
 
         {/* Mobile Menu */}
+
+        <IconButton
+          edge="end"
+          color="inherit"
+          aria-label="theme"
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          <Box sx={{ marginRight: "8px" }}>
+            {isDarkMode ? (
+              <LightModeIcon onClick={toggleTheme} />
+            ) : (
+              <NightlightIcon onClick={toggleTheme} />
+            )}
+          </Box>
+        </IconButton>
         <IconButton
           edge="end"
           color="inherit"

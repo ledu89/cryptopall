@@ -1,19 +1,19 @@
+@import "../../styles/variables.scss";
 .footer {
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 2px solid rgb(212, 212, 212);
-  width: 100%;
-  margin: 0 auto;
-  min-height: 80px;
+  border-top: 2px solid $soft-bg;
+  .light-mode & {
+    border-top: 2px solid $soft-color;
+  }
 
-  span {
-    &:first-child {
-      font-weight: bold;
-    }
-    &:last-child {
-      font-size: 14px;
-    }
+  width: 100%;
+  margin-top: 20px;
+
+  min-height: 40px;
+  a {
+    color: $purple;
   }
 }

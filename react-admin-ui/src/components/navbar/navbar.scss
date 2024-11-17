@@ -1,10 +1,17 @@
 @import "../../styles/responsive.scss";
+@import "../../styles/variables.scss";
 .navbar {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  transition: all 0.3s ease, color 0.3s ease;
+  margin-bottom: 12px;
+  &.light-theme {
+    background-color: #fff;
+    color: #161616;
+  }
+
+  &.dark-theme {
+    background-color: $main-bg;
+    color: white;
+  }
   .logo {
     display: flex;
     align-items: center;

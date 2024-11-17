@@ -6,6 +6,10 @@
   padding: 30px;
   max-width: 450px;
   color: $main-color;
+  .light-mode & {
+    background-color: $soft-color;
+    color: #1f1f1f;
+  }
   .profile-info {
     display: flex;
     flex-direction: column;

@@ -10,6 +10,9 @@
     a {
       font-size: 14px;
       color: $soft-color;
+      .light-mode & {
+        color: $dark-bg;
+      }
     }
   }
   h2 {
@@ -27,6 +30,11 @@
       &:hover {
         background-color: $soft-bg;
         border-radius: 5px;
+      }
+      .light-mode & {
+        &:hover {
+          background-color: $soft-color;
+        }
       }
       .coin {
         display: flex;

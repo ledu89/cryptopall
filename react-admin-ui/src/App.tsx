@@ -15,6 +15,7 @@ import Portfolio from "./pages/portfolio/Portfolio";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Profile from "./pages/profile/Profile";
 import AboutUs from "./pages/aboutUs/AboutUs";
+
 const queryClient = new QueryClient();
 function App() {
   return (

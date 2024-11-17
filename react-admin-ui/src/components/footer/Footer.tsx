@@ -3,8 +3,18 @@ import "./footer.scss";
 const Footer = () => {
   return (
     <div className="footer">
-      <span>LeduDev</span>
-      <span>LeduDev admin dashboard</span>
+      <small>Like what you see?</small>
+
+      <small>
+        Visit my website:{" "}
+        <a
+          href="https://ledu-dev.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ledu.dev
+        </a>
+      </small>
     </div>
   );
 };

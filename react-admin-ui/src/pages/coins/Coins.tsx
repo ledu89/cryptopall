@@ -10,9 +10,9 @@ import { formatPrice } from "../../helpers/formatPrice";
 import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { AccountBalanceWallet, RemoveRedEye } from "@mui/icons-material";
-// import { buyCoin } from "../../api/axiosInstance";
+
 import { useAuth } from "../../context/AuthContext";
-import { CryptoCoin, SelectedCoin } from "../../types/Types";
+import { SelectedCoin } from "../../types/Types";
 import useBuyCoin from "../../hooks/useBuyCoin";
 import useGetUserDeposit from "../../hooks/useGetUserDeposit";
 import Loader from "../../components/loader/Loader";
@@ -175,7 +175,6 @@ const Coins = () => {
       }
     }
   };
-
 
   return (
     <div className="coins">

@@ -14,7 +14,7 @@ const Menu = () => {
               to={listItem.url}
               className="listItem"
             >
-              <img src={listItem.icon} alt="" />
+              <img className="icon" src={listItem.icon} alt="" />
               <span className="listItemTitle">{listItem.title}</span>
             </Link>
           ))}

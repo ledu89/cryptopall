@@ -14,6 +14,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Coin = () => {
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [isExpanded, setIsExpanded] = useState(false);
   const { id } = useParams<string>();
   const endpoint: string = `/coins`;
 
@@ -22,6 +23,14 @@ const Coin = () => {
     isLoading: isSingleCoinLoading,
     isError: singleCoinError,
   } = useFetchSingleCoin({ endpoint, id });
+  const toggleDescription = () => {
+    setIsExpanded((prevState) => !prevState);
+  };
+
+  const description = singleCoinData?.description?.en;
+  const displayedDescription = isExpanded
+    ? description
+    : description?.slice(0, 300);
 
   const handleCurrencyChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCurrency(e.target.value);
@@ -77,16 +86,23 @@ const Coin = () => {
               <p> ({selectedCurrency})</p>
             </div>
           </div>
-
           <p
             className="details"
             dangerouslySetInnerHTML={{
-              __html: singleCoinData.description.en.replace(
+              __html: displayedDescription.replace(
                 /\$([^\s]*)/g,
                 '<a href="https://www.coingecko.com/en?hashing_algorithm=$1">$1</a>'
               ),
             }}
           ></p>
+          {description?.length > 300 && (
+            <small
+              style={{ cursor: "pointer", color: "#8884d8" }}
+              onClick={toggleDescription}
+            >
+              {isExpanded ? "Show Less" : "Show More"}
+            </small>
+          )}
 
           <div className="additionalInfo">
             <p>Market rank: {singleCoinData.market_cap_rank}</p>
@@ -117,19 +133,6 @@ const Coin = () => {
           handleCurrencyChange={handleCurrencyChange}
         />
       </div>
-      {/* <div className="activities">
-        <h2>Recent Market Data</h2>
-        <ul>
-          {transformedData.slice(0, 10).map((data, index) => (
-            <li key={index}>
-              <p>Date: {data.timestamp}</p>
-              <p>
-                Price: {data.price.toFixed(4)} {selectedCurrency.toUpperCase()}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div> */}
     </div>
   );
 };

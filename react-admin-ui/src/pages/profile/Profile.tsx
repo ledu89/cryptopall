@@ -2,6 +2,7 @@ import "./profile.scss";
 import { Box, Button, TextField } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
+import { useTheme } from "../../context/ThemeContet";
 
 type UserInfoProps = {
   username: string;
@@ -14,6 +15,7 @@ const Profile: React.FC = () => {
     username: user?.username || "",
     email: user?.email || "",
   });
+  const { isDarkMode } = useTheme();
   const handleInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserInfo((prev) => ({
@@ -61,10 +63,13 @@ const Profile: React.FC = () => {
                 defaultValue={user?.username}
                 onChange={handleInfo}
                 InputLabelProps={{
-                  style: { color: "#fff" },
+                  style: { color: isDarkMode ? "#fefefe" : "#161616" },
                 }}
                 InputProps={{
-                  style: { color: "#fff", borderColor: "#8884d8" },
+                  style: {
+                    color: isDarkMode ? "#fefefe" : "#161616",
+                    borderColor: "#8884d8",
+                  },
                 }}
                 sx={{
                   "& .MuiOutlinedInput-root": {
@@ -91,10 +96,13 @@ const Profile: React.FC = () => {
                 defaultValue={user?.email}
                 onChange={handleInfo}
                 InputLabelProps={{
-                  style: { color: "#fff" },
+                  style: { color: isDarkMode ? "#fefefe" : "#161616" },
                 }}
                 InputProps={{
-                  style: { color: "#fff", borderColor: "#8884d8" },
+                  style: {
+                    color: isDarkMode ? "#fefefe" : "#161616",
+                    borderColor: "#8884d8",
+                  },
                 }}
                 sx={{
                   "& .MuiOutlinedInput-root": {

@@ -4,20 +4,25 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import LockIcon from "@mui/icons-material/Lock";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-// import "./about.scss"; // Optional: Add custom styles if needed
+import { useTheme } from "../../context/ThemeContet";
 
 const AboutUs: React.FC = () => {
+  const { isDarkMode } = useTheme();
   return (
     <Container maxWidth="md" sx={{ color: "#fff", paddingTop: "2rem" }}>
       <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
         <Typography
           variant="h3"
           gutterBottom
-          sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+          sx={{ fontWeight: "bold", color: isDarkMode ? "#fff" : "#222b3c" }}
         >
           About Us
         </Typography>
-        <Typography variant="body1" paragraph sx={{ color: "#c0c0c0" }}>
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ color: isDarkMode ? "#fff" : "#222b3c" }}
+        >
           Welcome to our crypto app! Our platform offers an intuitive and
           seamless experience to explore, manage, and invest in
           cryptocurrencies. Designed for both newcomers and experienced
@@ -29,14 +34,17 @@ const AboutUs: React.FC = () => {
           <Box sx={{ textAlign: "center", padding: "1rem" }}>
             <Typography
               variant="h4"
-              sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+              sx={{
+                fontWeight: "bold",
+                color: isDarkMode ? "#fff" : "#222b3c",
+              }}
             >
               Our Mission
             </Typography>
             <Typography
               variant="body2"
               paragraph
-              sx={{ color: "#c0c0c0", maxWidth: "600px" }}
+              sx={{ color: isDarkMode ? "#fff" : "#222b3c", maxWidth: "600px" }}
             >
               We empower individuals to make informed financial decisions by
               providing real-time data, investment tools, and a supportive
@@ -49,7 +57,10 @@ const AboutUs: React.FC = () => {
           <Box sx={{ textAlign: "center", padding: "1rem" }}>
             <Typography
               variant="h4"
-              sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+              sx={{
+                fontWeight: "bold",
+                color: isDarkMode ? "#fff" : "#222b3c",
+              }}
             >
               Features
             </Typography>
@@ -68,7 +79,10 @@ const AboutUs: React.FC = () => {
                   />
                   <Typography
                     variant="h5"
-                    sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: isDarkMode ? "#fff" : "#222b3c",
+                    }}
                   >
                     Buy Cryptocurrencies
                   </Typography>
@@ -76,7 +90,7 @@ const AboutUs: React.FC = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: "#c0c0c0",
+                    color: isDarkMode ? "#fff" : "#222b3c",
                     maxWidth: "400px",
                     marginTop: "0.5rem",
                   }}
@@ -99,7 +113,10 @@ const AboutUs: React.FC = () => {
                   />
                   <Typography
                     variant="h5"
-                    sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: isDarkMode ? "#fff" : "#222b3c",
+                    }}
                   >
                     Sell and Manage Portfolio
                   </Typography>
@@ -107,7 +124,7 @@ const AboutUs: React.FC = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: "#c0c0c0",
+                    color: isDarkMode ? "#fff" : "#222b3c",
                     maxWidth: "400px",
                     marginTop: "0.5rem",
                   }}
@@ -128,7 +145,10 @@ const AboutUs: React.FC = () => {
                   <LockIcon sx={{ fontSize: "2.5rem", color: "#f44336" }} />
                   <Typography
                     variant="h5"
-                    sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: isDarkMode ? "#fff" : "#222b3c",
+                    }}
                   >
                     Secure Transactions
                   </Typography>
@@ -136,7 +156,7 @@ const AboutUs: React.FC = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: "#c0c0c0",
+                    color: isDarkMode ? "#fff" : "#222b3c",
                     maxWidth: "400px",
                     marginTop: "0.5rem",
                   }}
@@ -159,7 +179,10 @@ const AboutUs: React.FC = () => {
                   />
                   <Typography
                     variant="h5"
-                    sx={{ fontWeight: "bold", color: "#f0f0f0" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: isDarkMode ? "#fff" : "#222b3c",
+                    }}
                   >
                     Real-Time Market Data
                   </Typography>
@@ -167,7 +190,7 @@ const AboutUs: React.FC = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    color: "#c0c0c0",
+                    color: isDarkMode ? "#fff" : "#222b3c",
                     maxWidth: "400px",
                     marginTop: "0.5rem",
                   }}
