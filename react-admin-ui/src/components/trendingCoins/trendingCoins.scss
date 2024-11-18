@@ -53,8 +53,8 @@
           }
         }
         .coinTexts {
-          overflow: hidden;
-          white-space: nowrap;
+          max-width: 100%;
+          word-wrap: break-word;
           text-overflow: ellipsis;
           display: flex;
           flex-direction: column;

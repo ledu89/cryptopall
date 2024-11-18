@@ -16,7 +16,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() =>
-    JSON.parse(localStorage.getItem("isDarkMode") || "true")
+    JSON.parse(localStorage.getItem("c") || "true")
   );
 
   const toggleTheme = () => {
@@ -24,8 +24,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       const newMode = !prev;
       localStorage.setItem("isDarkMode", JSON.stringify(newMode));
       toast.info(`Theme changed to ${newMode ? "Dark" : "Light"} mode`, {
-        autoClose: 1000, // 1 second
-        position: "top-right", // Adjust to "bottom-right" if preferred
+        autoClose: 500,
+        position: "top-right",
+        style: {
+          maxWidth: "300px",
+          margin: "0 auto",
+          marginTop: "60px",
+        },
       });
       return newMode;
     });
