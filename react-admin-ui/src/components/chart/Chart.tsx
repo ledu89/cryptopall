@@ -2,6 +2,7 @@ import { Line, LineChart, ResponsiveContainer, XAxis, Tooltip } from "recharts";
 import { Box, Skeleton } from "@mui/material";
 import { useFetchCoinMarketChart } from "../../hooks/useFetchCoinMarkerChart";
 import { ChangeEvent, useState } from "react";
+import { formatPrice } from "../../helpers/formatPrice";
 
 type ChartData = {
   timestamp: string;
@@ -117,8 +118,12 @@ const Chart = ({ id, selectedCurrency, handleCurrencyChange }: ChartProps) => {
         >
           <XAxis dataKey="timestamp" />
           <Tooltip
+            contentStyle={{
+              backgroundColor: "#333", // Dark background
+              color: "#fff", // Light text color
+            }}
             formatter={(value: number) =>
-              `${value.toFixed(4)} ${selectedCurrency}`
+              `${formatPrice(value)} ${selectedCurrency}`
             }
           />
           <Line type="monotone" dataKey="price" stroke="#8884d8" dot={false} />
