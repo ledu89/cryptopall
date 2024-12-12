@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import "./loginForm.scss";
-import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  useFormContext,
+  SetValue,
+} from "react-hook-form";
 import { useAuth } from "../../context/AuthContext";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Button } from "@mui/material";
+
 type LoginData = {
   username: string;
   password: string;
@@ -23,11 +30,13 @@ type AuthContextType = {
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<FormValues>();
 
   const { login, isLoading } = useAuth() as AuthContextType;
@@ -35,6 +44,11 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
     await login(data);
     reset();
+  };
+
+  const fillGuestCredentials = () => {
+    setValue("username", "test");
+    setValue("password", "tester");
   };
 
   return (
@@ -92,6 +106,9 @@ const LoginForm = () => {
           </small>
         )}
         <div className="spinner">{isLoading && <CircularProgress />}</div>
+        <Button variant="outlined" onClick={fillGuestCredentials}>
+          Login as guest
+        </Button>
       </div>
     </div>
   );
