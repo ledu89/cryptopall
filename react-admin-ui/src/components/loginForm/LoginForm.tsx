@@ -47,8 +47,8 @@ const LoginForm = () => {
   };
 
   const fillGuestCredentials = () => {
-    setValue("username", "test");
-    setValue("password", "tester");
+    setValue("username", "Guest");
+    setValue("password", "111111");
   };
 
   return (
