@@ -1,5 +1,5 @@
 import "./profile.scss";
-import { Box, Button, TextField } from "@mui/material";
+import { Alert, Box, Button, TextField } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { useTheme } from "../../context/ThemeContet";
@@ -47,10 +47,19 @@ const Profile: React.FC = () => {
           <h3>Username: {user?.username}</h3>
           <h3>Email: {user?.email}</h3>
 
-          <Button variant="text" onClick={handleEdit}>
+          <Button
+            disabled={user?.username === "Guest" ? true : false}
+            variant="text"
+            onClick={handleEdit}
+          >
             {open ? "Save" : "Edit"}
           </Button>
         </div>
+        {user?.username === "Guest" ? (
+          <Alert severity="warning">
+            You can not edit guest account. Create account to see full version
+          </Alert>
+        ) : null}
         {open && (
           <div className="edit-profile">
             <div className="username">
